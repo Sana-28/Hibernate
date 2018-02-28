@@ -1,0 +1,28 @@
+package com.bridgeit.dao;
+
+import javax.persistence.Query;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class DeleteStudent {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		
+		Query q=session.createQuery("update User set name=:n where id=:i");  
+		q.setParameter("n","Udit Kumar");  
+		q.setParameter("i",111);  
+		  
+		int status=q.executeUpdate();  
+		System.out.println(status);  
+	}
+
+}

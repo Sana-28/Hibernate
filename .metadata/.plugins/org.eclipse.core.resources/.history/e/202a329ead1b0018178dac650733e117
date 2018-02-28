@@ -1,0 +1,30 @@
+package com.bridgeit.dao;
+
+import javax.persistence.Query;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class DeleteStudent {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		Query query = session.createQuery("delete from Student where id= :id");
+	
+		Query query=session.createQuery("delete from Emp where id=100");  
+		//specifying class name (Emp) not tablename  
+		query.executeUpdate();  
+		
+		int result = query.executeUpdate();
+		System.out.println("Student Data Delete Status=" + result);
+
+	}
+
+}

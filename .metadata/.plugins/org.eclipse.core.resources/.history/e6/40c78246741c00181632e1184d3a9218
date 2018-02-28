@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bridgeit.model.Employee" table="employee">
+		<id name="employeeId">
+
+			<generator class="sequence">
+				<param name="sequence">emp_seq</param>
+			</generator>
+		</id>
+		<property name="name"></property>
+		<one-to-one name="address" class="com.bridgeit.model.Address"
+			cascade="all">
+		</one-to-one>
+	</class>
+
+	<class name="com.bridgeit.model.Address" table="address">
+		<id name="employeeId">
+			<generator class="foreign">
+				<param name="property">employeeId</param>
+			</generator>
+		</id>
+		<property name="addressLine1" />
+		<property name="city" />
+
+		<one-to-one name="employee" class="com.bridgeit.model.Employee"
+			constrained="true"></one-to-one>
+	</class>
+</hibernate-mapping>

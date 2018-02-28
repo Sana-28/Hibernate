@@ -1,0 +1,23 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class DeleteStudent {
+
+	public static void main(String[] args) {
+
+		Configuration configuration=new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		SessionFactory sessionFactory=configuration.buildSessionFactory();
+		Session session=sessionFactory.openSession();
+		
+		Query query=session.createQuery("delete from Student where id= :id");
+		query.setLong("id", 3);
+        result = query.executeUpdate();
+        System.out.println("Student Data Delete Status=" + result);
+
+	}
+
+}

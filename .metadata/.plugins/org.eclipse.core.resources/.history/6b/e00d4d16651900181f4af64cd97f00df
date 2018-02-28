@@ -1,0 +1,36 @@
+package com.bridgelabz.annotation;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Employees {
+	@Id
+	private int id;
+	private String name;
+	private String address;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(){
+		this.name= name;
+	}
+	
+	public String getAddress(){
+		return address;
+	}
+	
+	public void setAddress(){
+		this.address=address;
+	}
+}

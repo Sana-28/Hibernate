@@ -1,0 +1,11 @@
+<%@page import="com.bridgeit.dao.UserDao"%>
+
+<jsp:useBean id="obj" class="com.bridgeit.dao.User">
+</jsp:useBean>
+<jsp:setProperty property="*" name="object" />
+
+<%
+	int i = UserDao.register(object);
+	if (i > 0)
+		out.print("You are successfully registered");
+%>

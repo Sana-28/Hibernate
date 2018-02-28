@@ -1,0 +1,4 @@
+com/bridgeit/model/User.class
+com/bridgeit/dao/StudentDao.class
+com/bridgeit/dao/UserDao.class
+com/bridgeit/model/Student.class

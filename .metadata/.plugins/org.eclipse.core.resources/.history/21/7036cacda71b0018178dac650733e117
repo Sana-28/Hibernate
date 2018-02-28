@@ -1,0 +1,7 @@
+package com.bridgeit.dao;
+
+public class SelectStudent {
+	public static void main(String args[]) {
+
+	}
+}

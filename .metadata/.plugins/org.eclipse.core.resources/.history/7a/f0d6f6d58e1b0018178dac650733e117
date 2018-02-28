@@ -1,0 +1,33 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.model.Student;
+
+public class StudentDao {
+	
+	public static void main(String agrs[]){
+		
+		Configuration configuration=new Configuration();
+		configuration.configure("student.hbm.xml");
+		
+		SessionFactory sessionFactory=configuration.buildSessionFactory();
+		Session session=sessionFactory.getCurrentSession();
+		
+		Student student=new Student();
+		student.setId(1);
+		student.setName("abc");
+		student.setRoll("111");
+		student.setDegree("BE");
+		
+		Transaction transaction=session.beginTransaction();
+		session.save(student);
+		transaction.commit();
+		System.out.println("Object saved successfully.....!!");
+		factory.close();
+	}
+
+}

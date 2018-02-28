@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.bridgeit.model.Student" table="Student123">
+
+		<id name="id">
+		
+			<generator class="increment" ></generator>
+			</id>
+			<property-name name="name" type="string" ></property-name>
+			<property-name name="degree" type="string" ></property-name>
+			<property-name name="roll" type="string" ></property-name>
+			<property-name name="phone" type="string" ></property-name>
+		
+	</class>
+</hibernate-mapping>
+ 

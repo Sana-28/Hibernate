@@ -1,0 +1,53 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.model.Address;
+import com.bridgeit.model.Employee;
+
+/**
+ * Purpose: THis program is to implement many to one Mapping
+ * 
+ * @author SANA SHAIKH
+ *
+ */
+public class Store {
+
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		Transaction transaction = session.beginTransaction();
+
+		Employee employee1 = new Employee();
+		employee1.setName("Rosy");
+		employee1.setEmployeeId(1);
+
+		Employee employee2 = new Employee();
+		employee2.setName("Lily");
+		employee2.setEmployeeId(2);
+
+		session.save(employee1);
+		session.save(employee2);
+
+		transaction.commit();
+		session.close();
+		System.out.println("success");
+		Student s1 = new Student(0, "S N Rao");
+		Address a1 = new Address("301", "15", "Jawahar Nagar", "Hyderabad", s1);
+
+		s.save(a1);
+		s.flush();
+		t.commit();
+		System.out.println("Record of " + s1.getSid() + " is inserted");
+	}
+
+}

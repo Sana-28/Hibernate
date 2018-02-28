@@ -1,0 +1,9 @@
+package com.bridgeit.util;
+
+import org.hibernate.SessionFactory;
+
+public class HibernateSessionFactory {
+	
+	private static SessionFactory sessionFactory;
+
+}
