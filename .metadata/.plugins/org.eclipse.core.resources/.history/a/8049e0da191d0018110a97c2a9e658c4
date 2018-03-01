@@ -1,0 +1,21 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.model.Employee;
+
+public class Retrive {
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		//Employee employee1=session.getClass(Employee.class,new Integer(100));
+	    Employee employee1 = (Employee)session.get(Employee.class, new Integer(100));
+
+	}
+}

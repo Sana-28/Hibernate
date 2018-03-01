@@ -1,0 +1,16 @@
+package com.bridgeit.model;
+
+/**
+ * Purpose: This class contains the setters and getters methods,to set and get
+ * values of Student
+ * 
+ * @author SANA SHAIKH
+ *
+ */
+public class Dept {
+
+	  private int deptId;
+	  private String deptName;
+
+	
+}

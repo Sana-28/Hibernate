@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/bridgelabz/Hibernate/ManyToOne/src/main/java/hibernate.cfg.xml"/>
 			<item value="/home/bridgelabz/Hibernate/HibernateMapping/pom.xml"/>
 			<item value="/home/bridgelabz/Hibernate/HibernateMapping/src/main/java/com/bridgeit/dao/Store.java"/>
 			<item value="/home/bridgelabz/Hibernate/MavenWeb"/>
@@ -59,6 +60,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.bridgeit.dao.OneToMany"/>
 			<item value="com.bridgeit.dao.ManyToOne"/>
 			<item value="ManyToOne"/>
 			<item value="vgf.hug.gyguyg"/>
@@ -69,6 +71,7 @@
 			<item value="vgf.hug"/>
 		</list>
 		<list key="artifactId">
+			<item value="OneToMany"/>
 			<item value="ManyToOne"/>
 			<item value="gyguyg"/>
 		</list>

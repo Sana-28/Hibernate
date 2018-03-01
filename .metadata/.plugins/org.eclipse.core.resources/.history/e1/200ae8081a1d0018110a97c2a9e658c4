@@ -1,0 +1,31 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.model.Employee;
+
+public class Retrive {
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure();
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+
+		Employee employee1 = session.get(Employee.class, new Integer(100));
+
+		System.out.println("Employee ID: " + employee1.getEmployeeId());
+		System.out.println("Employee Name: " + employee1.getEmployeeName());
+
+		Dept d1 = employee1.getMyDept();
+		System.out.println("Employee Department ID: " + d1.getDeptId());
+		System.out.println("Employee Department Name: " + d1.getDeptName());
+
+		s.close();
+		System.out.println("many to one select is completed");
+		sf.close();
+
+	}
+}

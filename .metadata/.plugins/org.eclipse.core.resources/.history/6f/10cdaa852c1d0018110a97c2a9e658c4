@@ -1,0 +1,11 @@
+package com.bridgeit.model;
+
+import java.util.Set;
+
+public class Cart {
+	private long id;
+	private double total;
+	private String name;
+	private Set<Items> items;
+
+}

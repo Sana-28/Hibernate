@@ -1,0 +1,9 @@
+package com.bridgeit.config;
+
+import org.hibernate.SessionFactory;
+
+public class Config {
+	private static SessionFactory sessionFactory;
+	
+	private static SessionFactory buildS
+}

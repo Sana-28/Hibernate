@@ -1,0 +1,8 @@
+package com.bridgeit.dao;
+
+public class OneToMany {
+	public static void main(String args[]){
+		
+	}
+
+}

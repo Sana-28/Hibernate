@@ -34,7 +34,7 @@ public class Store {
 		session.save(address1);
 		//session.flush();
 		transaction.commit();
-		System.out.println("update successflly");
+		System.out.println("update successfully");
 		System.out.println("Record of " + employee1.getEmployeeId() + " is inserted");
 		session.close();
 	}

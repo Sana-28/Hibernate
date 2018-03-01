@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+
+	<class name="com.bridgeit.model.Dept" table="dept">
+		<id name="deptId" column="dept_id" />
+		<property name="deptName" column="dept_name" length="10" />
+	</class>
+
+	<class name="Employee" table="employee">
+		<id name="employeeId" column="employee_id" />
+		<property name="employeeName" column="employee_name" length="10" />
+		<many-to-one name="myDept" column="dept_id" cascade="all" />
+	</class>
+
+</hibernate-mapping>

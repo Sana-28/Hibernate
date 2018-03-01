@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+ 
+<class name="Dept" table="dept">
+  <id name="deptId" column="dept_id" />
+  <property name="deptName" column="dept_name" length="10"/>
+</class>
+ 
+<class name="Employee" table="employee">
+  <id name="employeeId" column="employee_id" />
+  <property name="employeeName" column="employee_name" length="10"/>
+  <many-to-one name="myDept" column="dept_id" cascade="all" />
+</class>
+ 
+</hibernate-mapping>

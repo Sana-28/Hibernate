@@ -1,0 +1,27 @@
+package com.bridgeit.dao.ManyToOne;
+
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.SharedSessionContract;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.model.Address;
+import com.bridgeit.model.Student;
+import com.mysql.cj.api.Session;
+
+/**
+ * Hello world!
+ *
+ */
+public class Main {
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = (Session) sessionFactory.openSession();
+
+
+	}
+}

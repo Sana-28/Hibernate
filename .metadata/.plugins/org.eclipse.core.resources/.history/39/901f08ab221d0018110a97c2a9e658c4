@@ -1,0 +1,10 @@
+package com.bridgeit.dao;
+
+import java.util.Set;
+
+public class Department {
+
+	  private int departmentId;
+	  private String departmentName;
+	  private Set employees;
+}

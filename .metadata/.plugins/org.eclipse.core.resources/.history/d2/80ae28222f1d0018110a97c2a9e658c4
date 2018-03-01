@@ -1,0 +1,12 @@
+package com.bridgeit.dao;
+
+import com.bridgeit.model.Cart;
+
+public class OneToMany {
+	public static void main(String args[]){
+	
+		Cart cart=new Cart();
+		
+	}
+
+}
