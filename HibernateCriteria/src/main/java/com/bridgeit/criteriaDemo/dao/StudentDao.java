@@ -1,0 +1,38 @@
+package com.bridgeit.criteriaDemo.dao;
+
+import javax.persistence.Query;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.bridgeit.criteriaDemo.config.Config;
+import com.bridgeit.criteriaDemo.dto.Student;
+
+public class StudentDao {
+
+	Config config=new Config();
+	SessionFactory sessionFactory=config.buildSessionFactory();
+	
+	Session session=null;
+	
+	public void saveStudent(Student student){
+		
+		session=sessionFactory.getCurrentSession();
+		session.save(student);
+	}
+	
+	public Student getStudentById(int id){
+		
+		Session session= sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("Select st from Student st where st.id =:id ");
+		query.executeUpdate();
+		
+		return null;
+	}
+	
+	
+	
+	
+}

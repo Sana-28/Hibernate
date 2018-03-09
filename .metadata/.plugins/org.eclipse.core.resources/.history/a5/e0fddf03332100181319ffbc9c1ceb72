@@ -1,0 +1,18 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.bridgeit.config.Config;
+
+public class CriteriaDemo {
+	public static void main() {
+		SessionFactory sessionFactory = null;
+		sessionFactory = Config.buildSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+	}
+
+}

@@ -7,7 +7,7 @@
 
 <hibernate-mapping package="com.bridgeit.model">
 
-	<class name="com.bridgeit.model.Items" table="ITEMS">
+	<class name="com.bridgeit.dto.Items" table="ITEMS">
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="identity" />
@@ -22,7 +22,7 @@
 			<column name="quantity"></column>
 		</property>
 
-		<many-to-one name="cart" class="com.bridgeit.model.Cart">
+		<many-to-one name="cart" class="com.bridgeit.dto.Cart">
 			<column name="cart_id" ></column>
 		</many-to-one>
 	</class>

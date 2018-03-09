@@ -37,7 +37,5 @@ public class DeleteStudent {
 		transaction.commit();
 		session.close();
 		sessionFactory.close();
-
 	}
-
 }

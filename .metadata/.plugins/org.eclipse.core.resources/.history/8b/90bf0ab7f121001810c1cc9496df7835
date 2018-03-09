@@ -1,0 +1,22 @@
+package com.bridgeit.criteriaDemo.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.bridgeit.criteriaDemo.config.Config;
+import com.bridgeit.criteriaDemo.dto.Student;
+
+public class StudentDao {
+
+	Config config=new Config();
+	SessionFactory sessionFactory=config.buildSessionFactory();
+	
+	Session session=sessionFactory.getCurrentSession();
+	
+	public void displayStudent(Student student){
+		
+		session=sessionFactory.getCurrentSession();
+		session.save(student);
+		
+	}
+}

@@ -1,0 +1,40 @@
+package com.bridgeit.dao;
+
+import java.util.List;
+
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.bridgeit.config.Config;
+import com.bridgeit.model.Student;
+
+/**
+ * Purpose: THis program is to implement
+ * 
+ * @author SANA SHAIKH
+ * @since 6Mar18
+ */
+
+public class CriteriaDemo {
+
+	public static void main(String args[]) {
+
+		SessionFactory sessionFactory = null;
+		sessionFactory = Config.buildSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction transaction = session.beginTransaction();
+
+		@SuppressWarnings("deprecation")
+		Criteria criteria = session.createCriteria(Student.class);
+		List<Student> student = criteria.list();
+
+		for (Student u : student) {
+			System.out.println(u);
+		}
+	}
+
+}

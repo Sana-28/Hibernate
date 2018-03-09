@@ -1,0 +1,10 @@
+1520333889584	Rename package 'com.bridgeit.HibernateCriteria'
+1520336040925	Delete element
+1520338506039	Delete element
+1520342071945	Rename resource 'user.hbm.xml'
+1520343120212	Infer generic type arguments
+1520405756071	Rename package 'com.bridgeit.model'
+1520406661153	Rename package 'com.bridgeit.dao'
+1520406729660	Rename package 'com.bridgeit.config'
+1520406803236	Rename package 'com.bridgeit.dto'
+1520415205333	Delete element

@@ -1,0 +1,48 @@
+package com.bridgeit.dao;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+
+import com.bridgeit.config.Config;
+import com.bridgeit.model.Student;
+
+public class RestrictionDemo {
+
+	@SuppressWarnings("rawtypes")
+	public static void main(String args[]) {
+
+		SessionFactory sessionFactory = null;
+		sessionFactory = Config.buildSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+
+		Transaction transaction=session.beginTransaction();
+
+		Criteria criteria = session.createCriteria(Student.class);
+		//Criterion criterion = Restrictions.gt("id", new Integer(2));
+		Criterion criterion=Restrictions.like("name", abc);
+				
+		criteria.add(criterion);
+		List list = criteria.list();
+		//System.out.println("Total size of list " + list.size());
+
+		Iterator iterator = list.iterator();
+
+		while (iterator.hasNext()) {
+
+			Student student = (Student) iterator.next();
+			System.out.println(student.getId());
+			System.out.println(student.getName());
+			System.out.println(student.getPhone());
+			System.out.println(student.getRoll());
+			System.out.println("\n");
+		}
+
+	}
+}

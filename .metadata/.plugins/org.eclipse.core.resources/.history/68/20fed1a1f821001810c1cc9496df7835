@@ -1,0 +1,35 @@
+package com.bridgeit.HibernateLogin.dao;
+
+import javax.persistence.Query;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.HibernateLogin.dto.User;
+
+public class UserDAO {
+	Configuration configuration=new Configuration();
+	SessionFactory sessionFactory=configuration.buildSessionFactory();
+	
+	Session session=null;
+	
+	public void saveUser(User user){
+		
+		session=sessionFactory.getCurrentSession();
+		session.save(user)
+	}
+	
+	public Student getStudentById(int id){
+		
+		Session session= sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("Select st from Student st where st.id =:id ");
+		query.executeUpdate();
+		
+		return null;
+	}
+	
+	
+
+}

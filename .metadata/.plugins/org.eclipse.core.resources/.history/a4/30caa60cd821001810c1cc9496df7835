@@ -1,0 +1,5 @@
+package com.bridgeit.criteriaDemo.dao;
+
+public class StudentDao {
+
+}

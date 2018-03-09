@@ -1,0 +1,5 @@
+package com.bridgeit.HibernateLogin.config;
+
+public class Configuraton {
+
+}

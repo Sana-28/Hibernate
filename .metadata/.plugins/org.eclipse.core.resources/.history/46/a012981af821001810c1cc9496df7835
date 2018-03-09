@@ -1,0 +1,5 @@
+package com.bridgeit.HibernateLogin.dao;
+
+public class UserDAO {
+
+}

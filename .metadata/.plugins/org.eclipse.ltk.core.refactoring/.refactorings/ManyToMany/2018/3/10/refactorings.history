@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;App.java&apos; to &apos;HibernateCriteria/src/main/java/com.bridgeit.dao&apos;&#x0A;- Original project: &apos;ManyToMany&apos;&#x0A;- Destination element: &apos;HibernateCriteria/src/main/java/com.bridgeit.dao&apos;&#x0A;- Original element: &apos;com.bridgeit.dao.App.java&apos;" description="Copy compilation unit" destination="=HibernateCriteria/src\/main\/java&lt;com.bridgeit.dao" element1="/src\/main\/java&lt;com.bridgeit.dao{App.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1520342525482" units="1" version="1.0"/>
+</session>

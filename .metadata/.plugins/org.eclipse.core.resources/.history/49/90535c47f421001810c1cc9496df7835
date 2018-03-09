@@ -1,0 +1,5 @@
+package com.bridgeit.HibernateLogin.dto;
+
+public class User {
+
+}

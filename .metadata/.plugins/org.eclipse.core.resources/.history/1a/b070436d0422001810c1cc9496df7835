@@ -1,0 +1,27 @@
+package com.bridgeit.HibernateLogin.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.HibernateLogin.dto.User;
+
+public class UserDAO {
+
+	static Configuration configuration=new Configuration();
+	configuration.configure();
+	static SessionFactory sessionFactory=configuration.buildSessionFactory();
+	static Session session=sessionFactory.openSession();
+	static Transaction transaction=null;
+
+	
+	public static void saveUser(User user){
+		
+		
+		transaction=session.beginTransaction();
+		
+		session.save(user);
+		transaction.commit();
+	}
+}

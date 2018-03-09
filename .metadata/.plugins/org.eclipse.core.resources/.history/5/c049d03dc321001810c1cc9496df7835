@@ -1,0 +1,18 @@
+package com.bridgeit.HibernateDemo.config;
+
+import com.bridgeit.HibernateDemo.dao.Configuration;
+import com.bridgeit.HibernateDemo.dao.SessionFactory;
+
+public class HibernateConfig {
+	
+	public SessionFactory getSessionFactory()
+	{
+
+		Configuration cfg =new Configuration();
+		cfg.configure();
+		
+		SessionFactory factory = cfg.buildSessionFactory();
+		return factory;
+	}
+
+}

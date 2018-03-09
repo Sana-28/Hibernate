@@ -1,0 +1,24 @@
+package com.bridgeit.dao;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bridgeit.config.Config;
+
+public class RestrictionDemo {
+	
+	public static void main(String args[]){
+	
+		SessionFactory sessionFactory=null;
+		sessionFactory=Config.buildSessionFactory();
+		Session session=sessionFactory.getCurrentSession();
+		
+		//Transaction transaction=session.beginTransaction();
+		
+		Criteria criteria=session.beginTransaction();
+		
+	}
+}

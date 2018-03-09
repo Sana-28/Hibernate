@@ -4,8 +4,8 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.bridgeit.model">
-	<class name="com.bridgeit.model.Cart" table="CART">
+<hibernate-mapping package="com.bridgeit.dto">
+	<class name="com.bridgeit.dto.Cart" table="CART">
 		<id name="id" type="long">
 			<column name="cart_id" />
 			<generator class="identity" />
@@ -20,7 +20,7 @@
 			<key>
 				<column name="cart_id"></column>
 			</key>
-			<one-to-many class="com.bridgeit.model.Items" />
+			<one-to-many class="com.bridgeit.dto.Items" />
 		</set>
 	</class>
 

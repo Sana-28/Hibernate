@@ -1,0 +1,23 @@
+package com.bridgeit.HibernateLogin;
+
+import java.util.Scanner;
+
+import com.bridgeit.HibernateLogin.dao.UserDAO;
+import com.bridgeit.HibernateLogin.dto.User;
+
+public class DeleteUser {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter Id you want to delete:");
+		int id = scanner.nextInt();*/
+		User deleteUser=new User();
+		
+    	UserDAO userDAO=new UserDAO();
+		userDAO.deleteUser(id);
+    	System.out.println("Object deleted successfully...");
+	}
+
+}

@@ -1,0 +1,26 @@
+package com.bridgeit.criteriaDemo;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Projection;
+
+import com.bridgeit.criteriaDemo.config.Config;
+import com.bridgeit.criteriaDemo.dto.Student;
+
+public class ProjectionDemo {
+	public static void main(String args[]) {
+
+		SessionFactory sessionFactory = null;
+		sessionFactory = Config.buildSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+
+		Transaction transaction=session.beginTransaction();
+
+		Criteria criteria = session.createCriteria(Student.class);
+		//criteria.setProjection(Projection.property("DEGREE"));
+	
+		
+		}
+}

@@ -1,0 +1,12 @@
+package com.bridgeit.config;
+
+import org.hibernate.SessionFactory;
+
+public class Config {
+
+	public static SessionFactory getSessionFactory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

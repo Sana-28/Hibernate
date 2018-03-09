@@ -1,0 +1,5 @@
+package com.bridgeit.HibernateDemo.config;
+
+public class HibernateConfig {
+
+}

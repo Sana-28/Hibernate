@@ -1,0 +1,5 @@
+package com.bridgeit.HibernateDemo.dto;
+
+public class User {
+
+}

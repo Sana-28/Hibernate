@@ -1,0 +1,128 @@
+package com.bridgeit.HibernateLogin.dao;
+
+import java.util.Scanner;
+import javax.persistence.Query;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+
+import com.bridgeit.HibernateLogin.dto.User;
+
+/**
+ * Purpose: THis class USerDAo is to interact with the DATABAse
+ * 
+ * @author SANA SHAikh
+ *
+ */
+public class UserDAO {
+
+	Configuration config = new Configuration().configure().addAnnotatedClass(User.class);
+
+	SessionFactory sessionFactory = config.buildSessionFactory();
+
+	Transaction transaction = null;
+
+	static Scanner scanner = new Scanner(System.in);
+
+	/**
+	 * This function is to save a user
+	 * 
+	 * @param user
+	 */
+	public void saveUser(User user) {
+		Session session = sessionFactory.openSession();
+		transaction = session.beginTransaction();
+		session.save(user);
+		// session.save(user1);
+		transaction.commit();
+		session.close();
+	}
+
+	/**
+	 * This function is to delete a user
+	 * 
+	 * @param id
+	 */
+	public int deleteUser(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		transaction = session.beginTransaction();
+		Query query = session.createQuery("delete from User where id=:id");
+		query.setParameter("id", id);
+		int result = query.executeUpdate();
+
+		// System.out.println(result + "record deleted");
+		transaction.commit();
+		 return result;
+	}
+
+	/**
+	 * This function is to update a USer
+	 * 
+	 * @param name
+	 * @param idUpdate
+	 */
+	public int  updateUser(String name, int idUpdate) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		transaction = session.beginTransaction();
+		Query query = session.createQuery("update User set name= :name where id= :id");
+		query.setParameter("name", name);
+		query.setParameter("id", idUpdate);
+
+		int result = query.executeUpdate();
+		// System.out.println(result + "record updated..");
+		transaction.commit();
+		return result;
+	}
+
+	/**
+	 * This function is to fetch user details by ID
+	 * 
+	 * @param idFetch
+	 */
+	public User fetchLoginDetailsById(int idFetch) {
+		Session session = sessionFactory.getCurrentSession();
+		transaction = session.beginTransaction();
+
+		Criteria criteria = (Criteria) session.createCriteria(User.class);
+		Criterion criterion = Restrictions.eq("id", idFetch);
+		criteria.add(criterion);
+
+		User user = (User) criteria.uniqueResult();
+		user.getName();
+		user.getPassword();
+		transaction.commit();
+		return user;
+
+	}
+
+	/**
+	 * This function is to fetch USer details by ID and PAssword
+	 * 
+	 * @param idF
+	 */
+	public User fetchByIdPassword(int idF) {
+		Session session = sessionFactory.getCurrentSession();
+		transaction = session.beginTransaction();
+
+		System.out.println("Enter password to fetch details:");
+		String password = scanner.next();
+
+		Criteria criteria = session.createCriteria(User.class);
+		Criterion idFetch = Restrictions.eq("id", idF);
+		Criterion passwordFetch = Restrictions.eq("password", password);
+
+		Criterion criterion = Restrictions.and(idFetch, passwordFetch);
+		criteria.add(criterion);
+
+		User user = (User) criteria.uniqueResult();
+		user.getName();
+		transaction.commit();
+		return user;
+	}
+
+}

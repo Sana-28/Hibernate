@@ -1,0 +1,35 @@
+package com.bridgeit.HibernateLogin;
+
+import com.bridgeit.HibernateLogin.dao.UserDAO;
+import com.bridgeit.HibernateLogin.dto.User;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        /*User user=new User();
+        user.setId(3);
+        user.setName("Jack");
+        user.setPassword("543");
+        
+        User user1=new User();
+        user1.setId(2);
+        user1.setName("xyz");
+        user1.setPassword("321");
+        
+        UserDAO userDao=new UserDAO();
+        
+        userDao.saveUser(user);
+        //userDao.saveUser(user1);
+        System.out.println("Object saved successfully..");*/
+    	
+    	User user=new User();
+    	UserDAO userDAO=new UserDAO();
+    	userDAO.deleteUser(user);
+    	System.out.println("Object deleted successfully...");
+    }
+}

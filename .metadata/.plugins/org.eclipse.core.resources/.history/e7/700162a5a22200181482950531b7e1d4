@@ -1,0 +1,125 @@
+package com.bridgeit.HibernateLogin.dao;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.persistence.Query;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
+import com.bridgeit.HibernateLogin.dto.User;
+
+public class UserDAO {
+
+	Configuration config = new Configuration().configure().addAnnotatedClass(User.class);
+
+	SessionFactory sessionFactory = config.buildSessionFactory();
+	Session session = sessionFactory.openSession();
+	Transaction transaction = null;
+
+	static Scanner scanner = new Scanner(System.in);
+
+	public static User createUser() {
+
+		User user = new User();
+		System.out.println("Enter Id: ");
+		int id = scanner.nextInt();
+		user.setId(id);
+		System.out.println("Enter Name: ");
+		String name = scanner.next();
+		user.setName(name);
+		System.out.println("Enter password :");
+		String pass = scanner.next();
+		user.setPassword(pass);
+
+		return user;
+	}
+
+	public void saveUser(User user) {
+
+		transaction = session.beginTransaction();
+		session.save(user);
+		// session.save(user1);
+		transaction.commit();
+	}
+
+	public void deleteUser() {
+
+		System.out.println("Enter Id you want to delete:");
+		int id = scanner.nextInt();
+
+		transaction = session.beginTransaction();
+		Query query = session.createQuery("delete from User where id=:id");
+		query.setParameter("id", id);
+		int result = query.executeUpdate();
+
+		System.out.println(result + "record deleted");
+		transaction.commit();
+	}
+
+	public void updateUser() {
+		// TODO Auto-generated method stub
+
+		System.out.println("Enter name you want to update:");
+		String name = scanner.next();
+
+		System.out.println("Enter id Where you want to update:");
+		int id = scanner.nextInt();
+
+		transaction = session.beginTransaction();
+		Query query = session.createQuery("update User set name= :name where id= :id");
+		query.setParameter("name", name);
+		query.setParameter("id", id);
+
+		int result = query.executeUpdate();
+		System.out.println(result + "record updated..");
+		transaction.commit();
+
+	}
+
+	  public void fetchLoginDetailsById() {
+	  
+	  transaction=session.beginTransaction();
+	  System.out.println("Enter id to fetch the user Details:");
+	  int id=scanner.nextInt();
+	  
+	  Criteria criteria=(Criteria) session.createCriteria(User.class);
+	  Criterion criterion=Restrictions.eq("id", id);
+	  criteria.add(criterion);
+	  
+	  User user= (User) criteria.uniqueResult();
+	  
+	  //System.out.println(user+"User exist");
+	  System.out.println("USer details corresponding to id:"+user.getName()+" "+user.getPassword());
+
+	  }
+
+	public void fetchByIdPassword() {
+		
+		transaction=session.beginTransaction();
+		System.out.println("Enter id to fetch details:");
+		int id=scanner.nextInt();
+		
+		System.out.println("Enter password to fetch details:");
+		String password=scanner.next();
+		
+		Criteria criteria=session.createCriteria(User.class);
+		Criterion idFetch=Restrictions.eq("id", id);
+		Criterion passwordFetch=Restrictions.eq("password", password);
+		
+		Criterion criterion=Restrictions.and(idFetch, passwordFetch);
+		criteria.add(criterion);
+		
+		User user=(User) criteria.uniqueResult();
+		System.out.println("Fetched details:"+user.getName());
+	}
+
+}

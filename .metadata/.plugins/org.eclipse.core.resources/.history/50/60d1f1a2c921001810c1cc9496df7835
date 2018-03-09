@@ -1,0 +1,8 @@
+package com.bridgeit.config;
+
+public class Configuration {
+	
+	HibernateConfig hcfg=new HibernateConfig();
+
+
+}

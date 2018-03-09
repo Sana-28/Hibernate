@@ -8,18 +8,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.bridgeit.model.Cart;
-import com.bridgeit.model.Items;
+import com.bridgeit.OneToManyDAO.OneToManyDAO;
+import com.bridgeit.dto.Cart;
+import com.bridgeit.dto.Items;
 
+/**Purpose: This class is to implement one to many mapping
+ * @author SANA SHAIKH
+ *
+ */
 public class OneToMany {
 	public static void main(String args[]) {
-		
-	    Configuration configuration=new Configuration();
-	    configuration.configure();
-	    
-	    SessionFactory sessionFactory=configuration.buildSessionFactory();
-	    Session session=sessionFactory.openSession();
-	    Transaction transaction=session.beginTransaction();
 
 		Cart cart = new Cart();
 		cart.setName("My Cart");
@@ -34,15 +32,9 @@ public class OneToMany {
 		cart.setItems(itemsSet);
 		cart.setTotal(10*1 + 20*2);
 		
-		//Save the Model objects
-		session.save(cart);
-		session.save(item1);
-		session.save(item2);
-		
-		//Commit transaction
-		transaction.commit();
+		OneToManyDAO obj=new OneToManyDAO();
+		obj.oneToMany(cart,item1,item2);
 		System.out.println("Cart ID="+cart.getId());
-		session.close();
+		
 	}
-
 }

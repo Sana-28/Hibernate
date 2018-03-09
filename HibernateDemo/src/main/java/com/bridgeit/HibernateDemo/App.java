@@ -1,0 +1,23 @@
+package com.bridgeit.HibernateDemo;
+
+import com.bridgeit.HibernateDemo.dao.UserDAO;
+import com.bridgeit.HibernateDemo.dto.User;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        
+    	User user = new User();
+    	user.setId(1);
+    	user.setName("uma");
+    	user.setSalary(154721.3216558);
+    	
+    	UserDAO  userDAO = new  UserDAO();
+    	userDAO.saveUser(user);	
+    }
+}

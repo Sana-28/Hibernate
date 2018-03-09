@@ -1,0 +1,26 @@
+package com.bridgeit.criteriaDemo;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+
+import com.bridgeit.criteriaDemo.dto.Student;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		// System.out.println( "Hello World!" );
+		
+		Session session = null;
+		Criteria criteria = session.createCriteria(Student.class);
+		List<Student> student = criteria.list();
+
+		for (Student u : student) {
+			System.out.println(u);
+		}
+	}
+}

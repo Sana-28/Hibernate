@@ -1,0 +1,73 @@
+package com.bridgeit.HibernateLogin;
+
+import java.util.Scanner;
+
+
+import com.bridgeit.HibernateLogin.dao.UserDAO;
+import com.bridgeit.HibernateLogin.dto.User;
+
+/**
+ * Purpose: This Program contains main method to test a User
+ * 
+ * @author SANA SHAIKH
+ *
+ */
+public class App {
+	static Scanner scanner = new Scanner(System.in);
+
+	public static User createUser() {
+
+		User user = new User();
+		System.out.println("Enter Id: ");
+		int id = scanner.nextInt();
+		user.setId(id);
+		System.out.println("Enter Name: ");
+		String name = scanner.next();
+		user.setName(name);
+		System.out.println("Enter password :");
+		String pass = scanner.next();
+		user.setPassword(pass);
+
+		return user;
+	}
+
+	public static void main(String[] args) {
+		UserDAO userDao = new UserDAO();
+		System.out.println("Enter Number of Object:");
+
+		int n = scanner.nextInt();
+		for (int i = 0; i < n; i++) {
+
+			userDao.saveUser(createUser());
+		}
+		System.out.println("Object saved successfully..");
+
+		
+		// Deleting user
+		System.out.println("Enter Id you want to delete:");
+		int id = scanner.nextInt();
+		userDao.deleteUser(id);
+		System.out.println("Record deleted");
+
+		
+		// Updating User
+		System.out.println("Enter name you want to update:");
+		String name = scanner.next();
+		System.out.println("Enter id Where you want to update:");
+		int idUpdate = scanner.nextInt();
+		userDao.updateUser(name, idUpdate);
+		System.out.println("Record updated..");
+
+		
+		// Fetch Login details
+		System.out.println("Enter id to fetch the user Details:");
+		int idFetch = scanner.nextInt();
+		userDao.fetchLoginDetailsById(idFetch);
+
+		// Fetch using two fields
+		System.out.println("Enter id to fetch details:");
+		int idF = scanner.nextInt();
+		userDao.fetchByIdPassword(idF);
+
+	}
+}

@@ -1,0 +1,6 @@
+package com.bridgeit.config;
+
+public class ConfigDemo {
+
+	
+}
